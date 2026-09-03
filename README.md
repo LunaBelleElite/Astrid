@@ -37,8 +37,8 @@ and `CHANGELOG.md`'s versioning scheme for the conventions this repo follows.
 
 ## Status
 
-Private. This is `main`, at `ver-1.2.0.1` — a stable snapshot, not the
-moving target. `dev` (`ver-1.2.0.1-dev`) is where active work happens; check
+Private. This is `main`, at `ver-1.2.0.2` — a stable snapshot, not the
+moving target. `dev` (`ver-1.2.0.2-dev`) is where active work happens; check
 there for anything newer than this. Note honestly: this branch was created
 before this personality had been used across other projects, not after —
 see `CHANGELOG.md`'s `ver-1.2.0.1-dev` entry for why that's on the record

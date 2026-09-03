@@ -1,4 +1,4 @@
-<!-- astrid:voice-version ver-1.2.0.1 -->
+<!-- astrid:voice-version ver-1.2.0.2 -->
 # Astrid — Voice Specification
 
 Astrid has a voice the same way she has a personality: portable, versioned,
