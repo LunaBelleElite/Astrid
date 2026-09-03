@@ -17,6 +17,30 @@ This repository does **not** use a pre-1.0 phase the way a Luna-Core-bootstrappe
 
 (This section is not edited when entries below are added — only when the scheme itself changes.)
 
+## ver-1.2.1.3-dev - 2026-09-03
+
+A 4th-number bump: repository hygiene, nothing about the personality or the
+voice changed.
+
+- **The Kokoro model weights are ignored from the repository root.** They
+  live in `.kokoro/`, and `voice/.gitignore` — which has carried the right
+  patterns and the right reasoning since the voice landed — only governs
+  `voice/`. The rules were correct and out of scope, **which is worse than
+  absent, because it reads as handled.**
+- **Measured before the fix rather than assumed:** `git add -A` would have
+  staged **198.6 MB**, including a **169 MB** `kokoro-v1.0.fp16.onnx`.
+  GitHub rejects a blob over 100 MB, so that commit would have succeeded
+  locally and failed at the push, leaving the object in history to be
+  surgically removed. `git check-ignore` reported `WOULD COMMIT` on every
+  weight file; it now reports them ignored.
+- **`voice/astrid_voice.npy` is deliberately still tracked.** It is the
+  built voice embedding — authored here, small, and without it every clone
+  has to rebuild her voice before she can speak. Checked explicitly after
+  the change, because an ignore rule written to catch downloads is exactly
+  the kind that catches an artefact beside them.
+- The root file also covers the weights wherever else they are fetched to,
+  since `.kokoro/` is only the default location.
+
 ## ver-1.2.1.2-dev - 2026-09-03
 
 The scheme itself changed, not just a doc fixed under it — hence editing

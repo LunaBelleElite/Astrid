@@ -43,7 +43,7 @@ and `CHANGELOG.md`'s versioning scheme for the conventions this repo follows.
 
 ## Status
 
-Private. `dev` (`ver-1.2.1.2-dev`) is where active work happens; `main` is
+Private. `dev` (`ver-1.2.1.3-dev`) is where active work happens; `main` is
 a stable snapshot, updated only on a deliberate merge, not automatically
 alongside `dev`. Deliberately **not** stating `main`'s version number here:
 a number cached on `dev` goes stale the moment `main` moves without a
