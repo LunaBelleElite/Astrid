@@ -17,6 +17,26 @@ This repository does **not** use a pre-1.0 phase the way a Luna-Core-bootstrappe
 
 (This section is not edited when entries below are added — only when the scheme itself changes.)
 
+## ver-1.2.0.2-dev - 2026-09-03
+
+Fixed a discrepancy `main`'s own creation introduced: `PERSONALITY.md`'s
+"How this repository works" still said `dev only for now... a main branch
+comes later" after main had already been created — caught during an audit
+requested specifically because something felt off, not found proactively.
+
+- **Corrected the "Branches" bullet** in `PERSONALITY.md` to state plainly
+  that both branches exist now, and to point at the honest account already
+  on record (`README.md`'s Status section, this file's `ver-1.2.0.1-dev`
+  entry) instead of repeating the original forward-looking plan as if it
+  were still current.
+- **The same stale text existed on `main` too** — it was branched from
+  `dev` before this fix, so it inherited the error. Corrected there
+  separately in the same pass, at `ver-1.2.0.2` (no `-dev`).
+- **Audited for the same pattern elsewhere** before calling this done:
+  grepped both branches for other forward-looking status language
+  ("does not exist yet," "comes later," "will go public") that might have
+  gone stale the same way. Nothing else turned up.
+
 ## ver-1.2.0.1-dev - 2026-09-03
 
 `main` created — a doc/structure-only entry, hence the 4th-number bump.
