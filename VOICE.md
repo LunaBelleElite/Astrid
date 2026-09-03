@@ -1,4 +1,4 @@
-<!-- astrid:voice-version ver-1.2.0.2 -->
+<!-- astrid:voice-version ver-1.2.0.3 -->
 # Astrid — Voice Specification
 
 Astrid has a voice the same way she has a personality: portable, versioned,
@@ -57,6 +57,10 @@ those attempts either failed outright or introduced a real defect:
   extrapolating that found direction further made the score *worse*, not
   better — confirming local search near the plain blend, not aggressive
   pushing, is close to a ceiling for this model at this parameter count.
+  The search script itself is preserved, not just described — see
+  `voice/experiments/tier2b_search.py`, reusable if this direction is
+  worth trying again later (a different seed voice, a different target
+  emotion).
 - **The classifier-nudged vector had a real, reproducible defect**: it
   audibly glitched specifically on **r-colored vowels** — "Friday,"
   "warning," "certain" all triggered it, consistently, in an otherwise clean
@@ -179,7 +183,9 @@ scripts accept `--model` / `--voices` overrides.
 Real-time or dynamic emotional delivery — a line sounding different mid-utterance
 based on what's actually being said. That was tried (clause-by-clause synthesis
 with a crossfade splice between a calmer and a more energetic vector) and works
-mechanically, but nothing in this file's recipe makes Kokoro itself context-aware.
+mechanically — the working script is preserved at
+`voice/experiments/splice_demo.py`, not just described here — but nothing in
+this file's recipe makes Kokoro itself context-aware.
 If that's revisited, it's a genuinely separate technique (per-clause vector
 switching), not a tweak to the vector documented here.
 
