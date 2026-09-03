@@ -37,7 +37,7 @@ and `CHANGELOG.md`'s versioning scheme for the conventions this repo follows.
 
 ## Status
 
-Private. `dev` (`ver-1.2.0.4-dev`) is where active work happens; `main`
+Private. `dev` (`ver-1.2.0.5-dev`) is where active work happens; `main`
 (`ver-1.2.0.3`, as of its last merge — not necessarily current, see
 `CHANGELOG.md`'s versioning scheme for why `dev` doesn't assume lockstep)
 is a stable snapshot, not a moving target. Note honestly: `main` was created

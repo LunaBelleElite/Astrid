@@ -17,6 +17,29 @@ This repository does **not** use a pre-1.0 phase the way a Luna-Core-bootstrappe
 
 (This section is not edited when entries below are added — only when the scheme itself changes.)
 
+## ver-1.2.0.5-dev - 2026-09-03
+
+Second occurrence of the exact same discrepancy the last entry fixed — same
+overstated lockstep claim, different file. Found this time by a deliberate
+follow-up sweep, not by it being pointed out again.
+
+- **`PERSONALITY.md`'s "Branches" bullet** still said `main` "mirrors it at
+  the same version minus the `-dev` suffix" — written before the previous
+  entry's ruling that `main` only moves on a deliberate merge. Corrected to
+  match: `main` is a stable snapshot that drifts from `dev`'s number
+  between merges, on purpose, not something assumed to always be one
+  suffix away.
+- **The sweep that found it**: grepped every doc file for "lockstep,"
+  "mirrors it," and "same version" after fixing the first instance,
+  specifically because a claim wrong in one place is exactly the kind of
+  thing likely to be duplicated in another. It was.
+- **Also checked and confirmed clean this pass**: `CHANGELOG.md`'s own
+  entry ordering (newest-first, no duplicates, no gaps — verified by
+  listing every `## ver-` heading directly rather than eyeballing it), and
+  a broader sweep for other forward-looking status language across every
+  doc file, which turned up nothing beyond what's already correctly
+  historical (past entries describing what was true *then*).
+
 ## ver-1.2.0.4-dev - 2026-09-03
 
 Ruled: `dev` and `main` won't be merged every round — a change to the
