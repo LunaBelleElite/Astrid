@@ -37,6 +37,6 @@ and `CHANGELOG.md`'s versioning scheme for the conventions this repo follows.
 
 ## Status
 
-Private, `dev` branch only, `ver-1.1.0.0-dev`. This repository will go
+Private, `dev` branch only, `ver-1.2.0.0-dev`. This repository will go
 public and gain a stable `main` branch once this personality has been used
 across enough projects to know it doesn't need further tweaking.

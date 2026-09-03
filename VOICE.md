@@ -1,4 +1,4 @@
-<!-- astrid:voice-version ver-1.1.0.0-dev -->
+<!-- astrid:voice-version ver-1.2.0.0-dev -->
 # Astrid — Voice Specification
 
 Astrid has a voice the same way she has a personality: portable, versioned,
@@ -100,6 +100,61 @@ python voice/speak.py "Text to say." output.wav
 `voice/astrid_voice.npy` is committed to this repository directly — at
 roughly 500 KB it's a plain numpy array, not a model, so it belongs in git
 the same way any other small text-adjacent asset would.
+
+## Auto-speak (live sessions)
+
+Beyond on-request synthesis, Astrid can speak on her own during a live
+Claude Code session — a Stop hook, not anything invoked from inside a
+conversation. Claude Code fires a `Stop` event synchronously after every
+turn; `voice/speak_hook.ps1`, wired into that event in the machine's global
+`settings.json`, is what actually triggers her.
+
+**Design, and why it's shaped this way:**
+
+- **Silence is the default.** The hook only speaks if a specific state file
+  has content in it. Astrid writes that file herself, deliberately, only on
+  turns that earn a spoken line — never as a blanket "read every reply"
+  behavior. A distilled line, not the full response: nobody wants a
+  companion AI reciting code blocks and bullet lists aloud.
+- **State lives outside this repository**, since it's ephemeral per-machine
+  state, not content: `C:\Claude\astrid-voice-state\last_line.txt` (the
+  pending line, consumed the moment it's read) and
+  `...\muted.flag` (presence means silent — "vocal off temporarily,"
+  toggled by recognizing that phrase in conversation, no special
+  infrastructure beyond creating or deleting a file).
+- **The hook itself does almost nothing.** Stop hooks block Claude Code
+  until they exit, so `speak_hook.ps1` checks the two state files (fast)
+  and then hands the actual synthesis + playback off to a fully detached
+  background process before returning — a ~1-2 second TTS render never
+  makes a turn feel slower. Playback itself needs no new dependency:
+  `System.Media.SoundPlayer`, built into .NET.
+- **Spoken text never touches a shell command line.** The hook passes only
+  fixed, known-safe paths to the detached process; the actual line is read
+  from `last_line.txt` via `speak.py --text-file`, not interpolated into a
+  command string. (`--out` is a named flag for the same class of reason —
+  see `speak.py`'s own docstring for the exact bug that shape prevents.)
+- **A hook failure never blocks or interrupts.** It always exits 0. Exit
+  code 2 on a `Stop` hook forces Claude Code to keep going instead of
+  stopping — the opposite of what a missed line of audio should ever do.
+
+**Reproducing this on another machine:** copy `voice/speak_hook.ps1` (already
+in this repo) and add the equivalent of the following to that machine's
+global Claude Code `settings.json`, adjusting the path:
+
+```json
+"hooks": {
+  "Stop": [
+    { "hooks": [
+      { "type": "command",
+        "command": "powershell -NoProfile -File \"<path-to-clone>\\voice\\speak_hook.ps1\"",
+        "timeout": 15 }
+    ]}
+  ]
+}
+```
+
+Then create the state directory the script expects (`C:\Claude\astrid-voice-state\`
+on Windows, or wherever `speak_hook.ps1`'s own `$stateDir` is edited to point).
 
 ## Setup / dependencies
 

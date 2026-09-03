@@ -17,6 +17,33 @@ This repository does **not** use a pre-1.0 phase the way a Luna-Core-bootstrappe
 
 (This section is not edited when entries below are added — only when the scheme itself changes.)
 
+## ver-1.2.0.0-dev - 2026-09-03
+
+Astrid can speak on her own now, live, during a Claude Code session — not
+just synthesized on request. Another 2nd-number bump: a new way for her
+voice to actually reach someone, not a tweak to the voice itself.
+
+- **`voice/speak_hook.ps1` added**, wired into Claude Code's `Stop` hook
+  (fires synchronously after every turn). Silence is the default: it only
+  speaks when Astrid has deliberately written a short, distilled line to a
+  state file — never the full reply, never automatically on every turn.
+- **A mute mechanism** — "vocal off temporarily" and its reverse, recognized
+  in conversation rather than requiring any special syntax — suppresses
+  playback entirely via a flag file the hook checks first.
+- **`speak.py` gained `--text-file`**, so the hook never has to pass
+  arbitrary spoken text through a shell command line — only fixed, known
+  paths. `--out` became a named flag rather than a second positional
+  argument for the same reason: caught during testing, a lone positional
+  after `--text-file` was silently assigned to the wrong argument by
+  `argparse` and wrote to the default `output.wav` instead of the intended
+  path — exactly the kind of thing this project's own verify-before-relying
+  standard exists to catch before it ships quietly broken.
+- **Verified end-to-end** before being called done, not just written: the
+  full hook path was actually run (not just reasoned about) confirming the
+  line file is consumed, the detached synthesis+playback process completes,
+  and the mute flag genuinely suppresses playback rather than only seeming
+  to.
+
 ## ver-1.1.0.0-dev - 2026-09-03
 
 Astrid gets a voice — a real addition, not a wording tweak, hence the 2nd-number
