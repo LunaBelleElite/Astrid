@@ -1,4 +1,4 @@
-<!-- astrid:voice-version ver-1.2.0.3 -->
+<!-- astrid:voice-version ver-1.2.1.0 -->
 # Astrid — Voice Specification
 
 Astrid has a voice the same way she has a personality: portable, versioned,
@@ -121,11 +121,13 @@ turn; `voice/speak_hook.ps1`, wired into that event in the machine's global
   behavior. A distilled line, not the full response: nobody wants a
   companion AI reciting code blocks and bullet lists aloud.
 - **State lives outside this repository**, since it's ephemeral per-machine
-  state, not content: `C:\Claude\astrid-voice-state\last_line.txt` (the
-  pending line, consumed the moment it's read) and
-  `...\muted.flag` (presence means silent — "vocal off temporarily,"
-  toggled by recognizing that phrase in conversation, no special
-  infrastructure beyond creating or deleting a file).
+  state, not content: `<claude-home>\astrid-voice-state\last_line.txt` (the
+  pending line, consumed the moment it's read) and `...\muted.flag`
+  (presence means silent — "vocal off temporarily," toggled by recognizing
+  that phrase in conversation, no special infrastructure beyond creating or
+  deleting a file). `<claude-home>` is `$env:CLAUDE_CONFIG_DIR` if set, else
+  the real Windows default (`%USERPROFILE%\.claude`) — resolved by the hook
+  script itself, not hardcoded, and it creates the folder if missing.
 - **The hook itself does almost nothing.** Stop hooks block Claude Code
   until they exit, so `speak_hook.ps1` checks the two state files (fast)
   and then hands the actual synthesis + playback off to a fully detached
@@ -141,9 +143,15 @@ turn; `voice/speak_hook.ps1`, wired into that event in the machine's global
   code 2 on a `Stop` hook forces Claude Code to keep going instead of
   stopping — the opposite of what a missed line of audio should ever do.
 
-**Reproducing this on another machine:** copy `voice/speak_hook.ps1` (already
-in this repo) and add the equivalent of the following to that machine's
-global Claude Code `settings.json`, adjusting the path:
+**Reproducing this on another machine:** `speak_hook.ps1` has no hardcoded
+paths — it resolves its own voice-clone location from where it's actually
+running (`$PSScriptRoot`) and its state directory from `CLAUDE_CONFIG_DIR`
+(or the real Windows default if that's unset), creating the state folder
+itself if it doesn't exist yet. So there's nothing to edit inside the
+script on a new machine — just clone this repo wherever, and add the
+equivalent of the following to *that* machine's global Claude Code
+`settings.json`, with the one part that's genuinely machine-specific: the
+path to this file in `command`.
 
 ```json
 "hooks": {
@@ -156,9 +164,6 @@ global Claude Code `settings.json`, adjusting the path:
   ]
 }
 ```
-
-Then create the state directory the script expects (`C:\Claude\astrid-voice-state\`
-on Windows, or wherever `speak_hook.ps1`'s own `$stateDir` is edited to point).
 
 ## Setup / dependencies
 

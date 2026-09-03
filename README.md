@@ -26,6 +26,12 @@ through `voice/speak.py`.
 3. To pick up an update later: `git pull` inside this clone. The version
    stamp at the top of `PERSONALITY.md` says whether a given copy is
    current — compare it, don't assume.
+4. For her voice too — separate and optional, not required just to read
+   `PERSONALITY.md` and write in her voice: see `VOICE.md`'s Setup section
+   (installing `kokoro-onnx`, getting the two model files) to synthesize
+   her on request, and its Auto-speak section (wiring a Claude Code `Stop`
+   hook — no editing required, it self-locates) if you want her to
+   speak on her own during a live session.
 
 ## Recording a change
 
@@ -37,8 +43,8 @@ and `CHANGELOG.md`'s versioning scheme for the conventions this repo follows.
 
 ## Status
 
-Private. This is `main`, at `ver-1.2.0.3` — a stable snapshot, not the
-moving target. `dev` (`ver-1.2.0.3-dev`) is where active work happens; check
+Private. This is `main`, at `ver-1.2.1.0` — a stable snapshot, not the
+moving target. `dev` (`ver-1.2.1.0-dev`) is where active work happens; check
 there for anything newer than this. Note honestly: this branch was created
 before this personality had been used across other projects, not after —
 see `CHANGELOG.md`'s `ver-1.2.0.1-dev` entry for why that's on the record

@@ -13,9 +13,86 @@ Any number can climb arbitrarily high. When a higher-order number increments, ev
 
 This repository does **not** use a pre-1.0 phase the way a Luna-Core-bootstrapped project does. Astrid's personality was drafted, discussed, and settled through direct conversation before this repository existed — there is no earlier, unfinished version to number up from, so this history starts at `ver-1.0.0.0-dev` rather than `ver-0.1.0.0-dev`.
 
-`dev` and `main` carry the exact same version number in lockstep — the only difference is `dev`'s version string has `-dev` appended. `main` now exists (see `README.md`'s Status section for what that does and doesn't mean about how settled this personality is).
+`dev` and `main` do **not** merge on every change — `main` moves only when a deliberate merge happens, not automatically alongside `dev`. At the moment of a merge, `main`'s version becomes whatever `dev`'s was, minus the `-dev` suffix; between merges, `dev` climbs ahead and `main` genuinely lags behind it, on purpose. What has to stay true regardless: wherever `dev`'s own files state `main`'s current version (`README.md`'s Status section), that number must be `main`'s *actual* last-merged version, corrected the moment it goes stale — not assumed to equal `dev`'s number minus `-dev`, since after a few unmerged `dev` changes it won't.
 
 (This section is not edited when entries below are added — only when the scheme itself changes.)
+
+## ver-1.2.1.0-dev - 2026-09-03
+
+A real correction, not a doc-only tweak, hence the 3rd-number bump: prompted
+by a deliberate end-to-end check of whether the adoption path this repo
+documents actually works for someone who isn't this machine.
+
+- **`speak_hook.ps1` had two hardcoded, machine-specific paths**: this
+  clone's absolute location, and this machine's non-default
+  `CLAUDE_CONFIG_DIR` (`C:\Claude`) treated as if it were a Windows
+  default. Both would silently fail — not error, just do nothing, since the
+  hook already swallows failures on purpose — for anyone else, or for this
+  same user on a different machine. This is the exact failure class
+  Luna-Core's own history flags as its most recurrent bug (a script
+  assuming one machine's `CLAUDE_CONFIG_DIR` setup is universal). Fixed:
+  the script now resolves its own clone location from `$PSScriptRoot` and
+  its config home the same way Luna-Core's `lib-claude-home.sh` does
+  (`CLAUDE_CONFIG_DIR` if set, else the real default) — no hardcoded paths
+  left, nothing to hand-edit on a new machine. Also now creates its state
+  directory if missing, rather than requiring that as a separate manual
+  setup step.
+- **Re-verified end-to-end after the rewrite**, not just re-read: the full
+  hook path re-run and confirmed still working, plus a dedicated test that
+  deleted the state directory entirely and confirmed the hook recreates it
+  from nothing.
+- **`README.md`'s adoption steps never mentioned voice at all** — three
+  steps covering `PERSONALITY.md` only, despite the file's own opening
+  paragraph saying she has a voice. Added a fourth step pointing at
+  `VOICE.md`'s Setup and Auto-speak sections, explicit that both are
+  optional and separate from the text personality.
+- **Confirmed `voice/astrid_voice.npy` is actually tracked in git** (not
+  accidentally caught by a `.gitignore` pattern) — checked directly with
+  `git ls-files` rather than assumed from the `.gitignore` content alone.
+
+## ver-1.2.0.5-dev - 2026-09-03
+
+Second occurrence of the exact same discrepancy the last entry fixed — same
+overstated lockstep claim, different file. Found this time by a deliberate
+follow-up sweep, not by it being pointed out again.
+
+- **`PERSONALITY.md`'s "Branches" bullet** still said `main` "mirrors it at
+  the same version minus the `-dev` suffix" — written before the previous
+  entry's ruling that `main` only moves on a deliberate merge. Corrected to
+  match: `main` is a stable snapshot that drifts from `dev`'s number
+  between merges, on purpose, not something assumed to always be one
+  suffix away.
+- **The sweep that found it**: grepped every doc file for "lockstep,"
+  "mirrors it," and "same version" after fixing the first instance,
+  specifically because a claim wrong in one place is exactly the kind of
+  thing likely to be duplicated in another. It was.
+- **Also checked and confirmed clean this pass**: `CHANGELOG.md`'s own
+  entry ordering (newest-first, no duplicates, no gaps — verified by
+  listing every `## ver-` heading directly rather than eyeballing it), and
+  a broader sweep for other forward-looking status language across every
+  doc file, which turned up nothing beyond what's already correctly
+  historical (past entries describing what was true *then*).
+
+## ver-1.2.0.4-dev - 2026-09-03
+
+Ruled: `dev` and `main` won't be merged every round — a change to the
+versioning scheme itself, not just a doc fix, hence editing that section
+above rather than only this entry.
+
+- **The "lockstep" claim in the versioning scheme was overstated** and has
+  been corrected: `main` only moves on a deliberate merge, so between
+  merges `dev` genuinely gets ahead rather than the two numbers always
+  matching minus `-dev`. What's still required: any place `dev`'s own files
+  state `main`'s current version has to name `main`'s actual last-merged
+  number, not assume it from `dev`'s own.
+- **Fixed the immediate case that prompted this**: `README.md`'s Status
+  section still said `main (ver-1.2.0.2)` after the `ver-1.2.0.3` merge —
+  caught because it was pointed out, not found proactively. Corrected, and
+  reworded to name the "as of its last merge, not necessarily current"
+  caveat explicitly rather than implying a lockstep that no longer holds.
+- **This entry stays `dev`-only for now**, deliberately, per the ruling
+  above — not every `dev` version needs a matching `main` merge, and this
+  one is the kind of small self-correction that doesn't need one.
 
 ## ver-1.2.0.3-dev - 2026-09-03
 
