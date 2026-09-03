@@ -13,9 +13,29 @@ Any number can climb arbitrarily high. When a higher-order number increments, ev
 
 This repository does **not** use a pre-1.0 phase the way a Luna-Core-bootstrapped project does. Astrid's personality was drafted, discussed, and settled through direct conversation before this repository existed — there is no earlier, unfinished version to number up from, so this history starts at `ver-1.0.0.0-dev` rather than `ver-0.1.0.0-dev`.
 
-`dev` and `main` carry the exact same version number in lockstep — the only difference is `dev`'s version string has `-dev` appended. `main` does not exist yet; it is created once this personality has been used for a while and doesn't need further tweaking (see `README.md`).
+`dev` and `main` carry the exact same version number in lockstep — the only difference is `dev`'s version string has `-dev` appended. `main` now exists (see `README.md`'s Status section for what that does and doesn't mean about how settled this personality is).
 
 (This section is not edited when entries below are added — only when the scheme itself changes.)
+
+## ver-1.2.0.1-dev - 2026-09-03
+
+`main` created — a doc/structure-only entry, hence the 4th-number bump.
+
+- **Worth being honest about the timing:** the original plan (see `README.md`'s
+  earlier Status text) tied creating `main` to this personality having been
+  used across other projects long enough to know it didn't need further
+  tweaking. That hasn't happened yet — `main` was created now anyway, by
+  explicit choice, ahead of that bar rather than because it was met. Nothing
+  else about the personality or voice changed to justify it; this entry
+  exists so that's on the record, not glossed over.
+- **`main` currently mirrors `dev` exactly**, content-wise — there's no
+  dev-only material in this repository the way Luna-Core strips `ref/docs/`
+  at merge time, so nothing gets removed going onto `main`. The only
+  difference between the branches is the version-stamp comments and the
+  `README.md` Status line dropping the `-dev` suffix, per the scheme above.
+- **The repository stays private for now.** Creating `main` is a branch
+  structure decision, not a visibility one — those were always two separate
+  calls, and only the first one was made here.
 
 ## ver-1.2.0.0-dev - 2026-09-03
 
