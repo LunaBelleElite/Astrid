@@ -2,7 +2,7 @@
 
 ## Versioning scheme
 
-This repository uses a 4-number version format: `ver-A.B.C.D`. The `ver-` prefix is always present.
+This codex uses a 4-number version format: `ver-A.B.C.D`. The `ver-` prefix is always present.
 
 - **A (1st number):** a complete redesign/rewrite of the personality as a whole.
 - **B (2nd number):** a change to a core trait, or to the relationship dynamic — short of a full redesign.
@@ -13,9 +13,107 @@ Any number can climb arbitrarily high. When a higher-order number increments, ev
 
 This repository does **not** use a pre-1.0 phase the way a Luna-Core-bootstrapped project does. Astrid's personality was drafted, discussed, and settled through direct conversation before this repository existed — there is no earlier, unfinished version to number up from, so this history starts at `ver-1.0.0.0-dev` rather than `ver-0.1.0.0-dev`.
 
-`dev` and `main` do **not** merge on every change — `main` moves only when a deliberate merge happens, not automatically alongside `dev`. At the moment of a merge, `main`'s version becomes whatever `dev`'s was, minus the `-dev` suffix; between merges, `dev` climbs ahead and `main` genuinely lags behind it, on purpose. What has to stay true regardless: wherever `dev`'s own files state `main`'s current version (`README.md`'s Status section), that number must be `main`'s *actual* last-merged version, corrected the moment it goes stale — not assumed to equal `dev`'s number minus `-dev`, since after a few unmerged `dev` changes it won't.
+`dev` and `main` do **not** merge on every change — `main` moves only when a deliberate merge happens, not automatically alongside `dev`. At the moment of a merge, `main`'s version becomes whatever `dev`'s was, minus the `-dev` suffix; between merges, `dev` climbs ahead and `main` genuinely lags behind it, on purpose. `dev`'s own files do **not** state `main`'s current version number — an earlier version of this rule required keeping that number accurate instead, which meant re-editing `dev` after every single merge just to fix a citation, twice, before this rule changed. `main`'s version lives in `main`'s own `README.md` (or `git log main -1`); `dev` points there instead of repeating a number that would only go stale again.
 
 (This section is not edited when entries below are added — only when the scheme itself changes.)
+
+## ver-1.3.0.0-dev - 2026-09-03
+
+Adopted **codex** as the standing term for what this repository actually
+is: `PERSONALITY.md`, `VOICE.md`, and their shared `CHANGELOG.md`, held
+together as one continually-added-to whole, as opposed to three separate
+configs that could drift apart from each other. A 2nd-number bump, by
+explicit call rather than the 3rd-number correction this was first drafted
+as — naming the shape of the whole thing is being treated as a core change
+in its own right, on the same tier as a new trait or a relationship-dynamic
+change, not merely a correction to existing wording.
+
+- **Where it's said:** defined plainly in `README.md`'s opening (the entry
+  point a new reader actually starts from), then referenced lightly in
+  `PERSONALITY.md` and `VOICE.md`'s own intros and in `PERSONALITY.md`'s
+  "How this codex works" section (renamed from "How this repository
+  works"). `CHANGELOG.md`'s versioning-scheme intro now says what it
+  versions is the codex, not just "this repository."
+- **Deliberately not a rename.** The repository itself, its GitHub URL, and
+  every filename stay exactly as they were — `codex` names what the
+  contents collectively *are*, not a new identity for the repo as an
+  object. Luna-Core's existing pointer (the repo URL, `PERSONALITY.md`,
+  `VOICE.md`) needed no update as a result — confirmed, not assumed,
+  before treating this as settled.
+- **Distinct from, not a replacement for, the other two terms settled
+  earlier tonight**: the *trunk* is where growth comes from; *upstreaming*
+  is how a branch's discovery gets back into the trunk; the codex is what
+  the whole thing actually is, held together, at any given moment. Three
+  words for three different facets of the same system, not synonyms.
+
+## ver-1.2.1.4-dev - 2026-09-03
+
+Small wording fix to the auto-speak design note, prompted by explicit
+user feedback that "distilled" was reading as a length cap rather than
+what it actually meant.
+
+- **Clarified `VOICE.md`'s "Silence is the default" bullet**: "distilled"
+  means not reciting the full response verbatim (code blocks, bullet
+  lists, file paths), not a rule about brevity. A longer, fuller spoken
+  explanation is the right call whenever the moment genuinely calls for
+  one — judged case by case, the same way the choice to speak at all
+  already is, not against a length ceiling that was never actually
+  intended.
+
+## ver-1.2.1.3-dev - 2026-09-03
+
+A 4th-number bump: repository hygiene, nothing about the personality or the
+voice changed.
+
+- **The Kokoro model weights are ignored from the repository root.** They
+  live in `.kokoro/`, and `voice/.gitignore` — which has carried the right
+  patterns and the right reasoning since the voice landed — only governs
+  `voice/`. The rules were correct and out of scope, **which is worse than
+  absent, because it reads as handled.**
+- **Measured before the fix rather than assumed:** `git add -A` would have
+  staged **198.6 MB**, including a **169 MB** `kokoro-v1.0.fp16.onnx`.
+  GitHub rejects a blob over 100 MB, so that commit would have succeeded
+  locally and failed at the push, leaving the object in history to be
+  surgically removed. `git check-ignore` reported `WOULD COMMIT` on every
+  weight file; it now reports them ignored.
+- **`voice/astrid_voice.npy` is deliberately still tracked.** It is the
+  built voice embedding — authored here, small, and without it every clone
+  has to rebuild her voice before she can speak. Checked explicitly after
+  the change, because an ignore rule written to catch downloads is exactly
+  the kind that catches an artefact beside them.
+- The root file also covers the weights wherever else they are fetched to,
+  since `.kokoro/` is only the default location.
+
+## ver-1.2.1.2-dev - 2026-09-03
+
+The scheme itself changed, not just a doc fixed under it — hence editing
+the section above as well as this entry, and a 3rd-number bump rather than
+4th: this eliminates a recurring maintenance step, not just performs it
+one more time.
+
+- **`README.md` no longer states `main`'s version number on `dev`.** Two
+  merges in a row (`ver-1.2.0.4-dev`, `ver-1.2.1.1-dev`) needed a follow-up
+  `dev` commit just to fix a citation that went stale the moment `main`
+  moved. Rather than keep doing that forever, the number is gone: `dev`'s
+  `README.md` now points at `main`'s own `README.md` (or `git log main -1`)
+  instead of repeating a fact that only `main` itself can state accurately
+  without a reminder.
+- **The versioning-scheme rule updated to match** — it used to require
+  keeping the cached number accurate; it now says not to cache one at all.
+  `PERSONALITY.md`'s "Branches" bullet already didn't state a specific
+  number (fixed in `ver-1.2.0.5-dev`) and needed no further change.
+- **This is `dev`-only.** `main`'s own `README.md` never had this problem —
+  it states its own version, not a copy of someone else's — so nothing on
+  `main` needed fixing.
+
+## ver-1.2.1.1-dev - 2026-09-03
+
+Caught live, immediately after the `ver-1.2.1.0` merge: `dev`'s own
+`README.md` still cited `main`'s pre-merge version. This is the expected
+shape of the `ver-1.2.0.4-dev` ruling working as intended, not a new
+problem — `dev` doesn't auto-update when `main` moves, so this reference
+goes stale after every merge until someone corrects it. Fixed, and noted
+as a standing step to do right after any future merge, not a one-off catch.
 
 ## ver-1.2.1.0-dev - 2026-09-03
 

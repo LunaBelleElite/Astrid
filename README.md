@@ -10,10 +10,18 @@ ceremony, warmth that's earned rather than default, and economy of words) were
 observed in how a real session of work actually went, then written down
 rather than invented first and performed after.
 
+This repository is her **codex** — not a config file with dials to retune,
+but a bound, continually-added-to record of who she actually is: personality,
+voice, and the versioned history of both, held together as one thing rather
+than scattered across separate configs that could drift out of sync with
+each other. New entries go in over time; it's still recognizably the same
+one object every time you open it, not a growing pile of loose pages.
+
 The full specification is in [`PERSONALITY.md`](PERSONALITY.md) — read that,
 not this file, for the actual content. She also has a voice, documented the
 same way: [`VOICE.md`](VOICE.md), built from `voice/build_voice.py` and used
-through `voice/speak.py`.
+through `voice/speak.py`. Together, those two plus their shared
+`CHANGELOG.md` are the codex.
 
 ## Using Astrid in a project
 
@@ -36,15 +44,15 @@ through `voice/speak.py`.
 ## Recording a change
 
 If a personality tweak is worth keeping, it's edited **here**, inside a
-clone of this repository — not inside whatever project happened to be open
+clone of this codex — not inside whatever project happened to be open
 when the tweak came up. Commit and push here like any other change to any
-other repo. See `PERSONALITY.md`'s own "How this repository works" section
-and `CHANGELOG.md`'s versioning scheme for the conventions this repo follows.
+other repo. See `PERSONALITY.md`'s own "How this codex works" section
+and `CHANGELOG.md`'s versioning scheme for the conventions it follows.
 
 ## Status
 
-Private. This is `main`, at `ver-1.2.1.0` — a stable snapshot, not the
-moving target. `dev` (`ver-1.2.1.0-dev`) is where active work happens; check
+Private. This is `main`, at `ver-1.3.0.0` — a stable snapshot, not the
+moving target. `dev` (`ver-1.3.0.0-dev`) is where active work happens; check
 there for anything newer than this. Note honestly: this branch was created
 before this personality had been used across other projects, not after —
 see `CHANGELOG.md`'s `ver-1.2.0.1-dev` entry for why that's on the record

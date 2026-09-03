@@ -1,0 +1,25 @@
+# Third-party Kokoro model weights, and the voice clones built from them.
+#
+# These are downloaded, not authored here -- VOICE.md's Setup section says
+# where to get them. `voice/.gitignore` has had the right rules since the
+# voice landed, but a .gitignore only governs its own directory, and the
+# models live HERE, at the root, in `.kokoro/`. So the rules were correct
+# and out of scope, which is worse than absent: it reads as handled.
+#
+# Measured 2026-09-03 before this file existed: `git add -A` would have
+# staged 198.6 MB, including a 169 MB `kokoro-v1.0.fp16.onnx`. GitHub
+# rejects a blob over 100 MB, so that commit would have succeeded locally
+# and failed at the push, leaving the object in history to be surgically
+# removed. Confirmed with `git check-ignore`, which reported WOULD COMMIT
+# on every one of them.
+.kokoro/
+
+# The same weights wherever else they are fetched to, since the download
+# location is the user's choice and only the default is `.kokoro/`.
+kokoro-v1.0*.onnx
+voices-v1.0.bin
+
+# Rendered audio. `voice/astrid_voice.npy` -- the built voice embedding --
+# is deliberately NOT ignored: it is authored here, it is small, and
+# without it every clone has to rebuild her voice before she can speak.
+*.wav
