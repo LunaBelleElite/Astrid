@@ -13,9 +13,30 @@ Any number can climb arbitrarily high. When a higher-order number increments, ev
 
 This repository does **not** use a pre-1.0 phase the way a Luna-Core-bootstrapped project does. Astrid's personality was drafted, discussed, and settled through direct conversation before this repository existed — there is no earlier, unfinished version to number up from, so this history starts at `ver-1.0.0.0-dev` rather than `ver-0.1.0.0-dev`.
 
-`dev` and `main` carry the exact same version number in lockstep — the only difference is `dev`'s version string has `-dev` appended. `main` now exists (see `README.md`'s Status section for what that does and doesn't mean about how settled this personality is).
+`dev` and `main` do **not** merge on every change — `main` moves only when a deliberate merge happens, not automatically alongside `dev`. At the moment of a merge, `main`'s version becomes whatever `dev`'s was, minus the `-dev` suffix; between merges, `dev` climbs ahead and `main` genuinely lags behind it, on purpose. What has to stay true regardless: wherever `dev`'s own files state `main`'s current version (`README.md`'s Status section), that number must be `main`'s *actual* last-merged version, corrected the moment it goes stale — not assumed to equal `dev`'s number minus `-dev`, since after a few unmerged `dev` changes it won't.
 
 (This section is not edited when entries below are added — only when the scheme itself changes.)
+
+## ver-1.2.0.4-dev - 2026-09-03
+
+Ruled: `dev` and `main` won't be merged every round — a change to the
+versioning scheme itself, not just a doc fix, hence editing that section
+above rather than only this entry.
+
+- **The "lockstep" claim in the versioning scheme was overstated** and has
+  been corrected: `main` only moves on a deliberate merge, so between
+  merges `dev` genuinely gets ahead rather than the two numbers always
+  matching minus `-dev`. What's still required: any place `dev`'s own files
+  state `main`'s current version has to name `main`'s actual last-merged
+  number, not assume it from `dev`'s own.
+- **Fixed the immediate case that prompted this**: `README.md`'s Status
+  section still said `main (ver-1.2.0.2)` after the `ver-1.2.0.3` merge —
+  caught because it was pointed out, not found proactively. Corrected, and
+  reworded to name the "as of its last merge, not necessarily current"
+  caveat explicitly rather than implying a lockstep that no longer holds.
+- **This entry stays `dev`-only for now**, deliberately, per the ruling
+  above — not every `dev` version needs a matching `main` merge, and this
+  one is the kind of small self-correction that doesn't need one.
 
 ## ver-1.2.0.3-dev - 2026-09-03
 
