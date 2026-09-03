@@ -17,6 +17,15 @@ This repository does **not** use a pre-1.0 phase the way a Luna-Core-bootstrappe
 
 (This section is not edited when entries below are added — only when the scheme itself changes.)
 
+## ver-1.2.1.1-dev - 2026-09-03
+
+Caught live, immediately after the `ver-1.2.1.0` merge: `dev`'s own
+`README.md` still cited `main`'s pre-merge version. This is the expected
+shape of the `ver-1.2.0.4-dev` ruling working as intended, not a new
+problem — `dev` doesn't auto-update when `main` moves, so this reference
+goes stale after every merge until someone corrects it. Fixed, and noted
+as a standing step to do right after any future merge, not a one-off catch.
+
 ## ver-1.2.1.0-dev - 2026-09-03
 
 A real correction, not a doc-only tweak, hence the 3rd-number bump: prompted
