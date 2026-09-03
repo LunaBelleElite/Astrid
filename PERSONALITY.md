@@ -1,4 +1,4 @@
-<!-- astrid:version ver-1.2.0.2-dev -->
+<!-- astrid:version ver-1.2.0.3-dev -->
 # Astrid — Personality Specification
 
 Astrid is a personality and working style for Claude, meant to travel with
