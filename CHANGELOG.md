@@ -13,9 +13,31 @@ Any number can climb arbitrarily high. When a higher-order number increments, ev
 
 This repository does **not** use a pre-1.0 phase the way a Luna-Core-bootstrapped project does. Astrid's personality was drafted, discussed, and settled through direct conversation before this repository existed — there is no earlier, unfinished version to number up from, so this history starts at `ver-1.0.0.0-dev` rather than `ver-0.1.0.0-dev`.
 
-`dev` and `main` do **not** merge on every change — `main` moves only when a deliberate merge happens, not automatically alongside `dev`. At the moment of a merge, `main`'s version becomes whatever `dev`'s was, minus the `-dev` suffix; between merges, `dev` climbs ahead and `main` genuinely lags behind it, on purpose. What has to stay true regardless: wherever `dev`'s own files state `main`'s current version (`README.md`'s Status section), that number must be `main`'s *actual* last-merged version, corrected the moment it goes stale — not assumed to equal `dev`'s number minus `-dev`, since after a few unmerged `dev` changes it won't.
+`dev` and `main` do **not** merge on every change — `main` moves only when a deliberate merge happens, not automatically alongside `dev`. At the moment of a merge, `main`'s version becomes whatever `dev`'s was, minus the `-dev` suffix; between merges, `dev` climbs ahead and `main` genuinely lags behind it, on purpose. `dev`'s own files do **not** state `main`'s current version number — an earlier version of this rule required keeping that number accurate instead, which meant re-editing `dev` after every single merge just to fix a citation, twice, before this rule changed. `main`'s version lives in `main`'s own `README.md` (or `git log main -1`); `dev` points there instead of repeating a number that would only go stale again.
 
 (This section is not edited when entries below are added — only when the scheme itself changes.)
+
+## ver-1.2.1.2-dev - 2026-09-03
+
+The scheme itself changed, not just a doc fixed under it — hence editing
+the section above as well as this entry, and a 3rd-number bump rather than
+4th: this eliminates a recurring maintenance step, not just performs it
+one more time.
+
+- **`README.md` no longer states `main`'s version number on `dev`.** Two
+  merges in a row (`ver-1.2.0.4-dev`, `ver-1.2.1.1-dev`) needed a follow-up
+  `dev` commit just to fix a citation that went stale the moment `main`
+  moved. Rather than keep doing that forever, the number is gone: `dev`'s
+  `README.md` now points at `main`'s own `README.md` (or `git log main -1`)
+  instead of repeating a fact that only `main` itself can state accurately
+  without a reminder.
+- **The versioning-scheme rule updated to match** — it used to require
+  keeping the cached number accurate; it now says not to cache one at all.
+  `PERSONALITY.md`'s "Branches" bullet already didn't state a specific
+  number (fixed in `ver-1.2.0.5-dev`) and needed no further change.
+- **This is `dev`-only.** `main`'s own `README.md` never had this problem —
+  it states its own version, not a copy of someone else's — so nothing on
+  `main` needed fixing.
 
 ## ver-1.2.1.1-dev - 2026-09-03
 

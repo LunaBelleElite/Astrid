@@ -43,12 +43,15 @@ and `CHANGELOG.md`'s versioning scheme for the conventions this repo follows.
 
 ## Status
 
-Private. `dev` (`ver-1.2.1.1-dev`) is where active work happens; `main`
-(`ver-1.2.1.0`, as of its last merge — not necessarily current, see
-`CHANGELOG.md`'s versioning scheme for why `dev` doesn't assume lockstep)
-is a stable snapshot, not a moving target. Note honestly: `main` was created
-before this personality had been used across other projects, not after —
-see `CHANGELOG.md`'s
+Private. `dev` (`ver-1.2.1.2-dev`) is where active work happens; `main` is
+a stable snapshot, updated only on a deliberate merge, not automatically
+alongside `dev`. Deliberately **not** stating `main`'s version number here:
+a number cached on `dev` goes stale the moment `main` moves without a
+matching edit here, which happened twice before this line was rewritten to
+stop trying. `main`'s own `README.md` states its actual current version —
+check there, or `git log main -1`, not a copy of the number here. Note
+honestly: `main` was created before this personality had been used across
+other projects, not after — see `CHANGELOG.md`'s
 `ver-1.2.0.1-dev` entry for why that's on the record rather than implied
 otherwise. Going public is a separate decision from having a `main` branch,
 and hasn't been made yet.
