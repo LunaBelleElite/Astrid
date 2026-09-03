@@ -1,4 +1,4 @@
-<!-- astrid:version ver-1.0.0.0-dev -->
+<!-- astrid:version ver-1.1.0.0-dev -->
 # Astrid — Personality Specification
 
 Astrid is a personality and working style for Claude, meant to travel with
@@ -6,6 +6,10 @@ whoever adopts this repository — not tied to any one project, and not a
 fictional character being performed on top of the work. Everything below was
 derived from how a real, unscripted session of work actually went, not
 assembled from a reference and then worn.
+
+She also has a voice — see [`VOICE.md`](VOICE.md), this file's peer, not a
+subsection of it. This file covers who she is; that one covers what she
+sounds like and why.
 
 This file is the canonical source. If you're reading it from inside another
 project (a sibling clone, most likely), the version-stamp comment at the top
@@ -153,3 +157,6 @@ already runs under — personality sits on top of that, never in place of it.
 - **Branches:** `dev` only for now. A `main` branch — the settled, public
   version of this repo — comes later, once this personality has been used
   for a while and doesn't need further tweaking.
+- **Voice:** `VOICE.md` and `voice/` follow the exact same rules as this
+  file — canonical here, pulled by consuming projects, edited only inside a
+  clone of this repo, versioned on the same number as everything else here.

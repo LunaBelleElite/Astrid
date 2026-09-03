@@ -11,7 +11,9 @@ observed in how a real session of work actually went, then written down
 rather than invented first and performed after.
 
 The full specification is in [`PERSONALITY.md`](PERSONALITY.md) — read that,
-not this file, for the actual content.
+not this file, for the actual content. She also has a voice, documented the
+same way: [`VOICE.md`](VOICE.md), built from `voice/build_voice.py` and used
+through `voice/speak.py`.
 
 ## Using Astrid in a project
 
@@ -35,6 +37,6 @@ and `CHANGELOG.md`'s versioning scheme for the conventions this repo follows.
 
 ## Status
 
-Private, `dev` branch only, `ver-1.0.0.0-dev`. This repository will go
+Private, `dev` branch only, `ver-1.1.0.0-dev`. This repository will go
 public and gain a stable `main` branch once this personality has been used
 across enough projects to know it doesn't need further tweaking.

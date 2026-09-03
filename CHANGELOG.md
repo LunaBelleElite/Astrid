@@ -17,6 +17,44 @@ This repository does **not** use a pre-1.0 phase the way a Luna-Core-bootstrappe
 
 (This section is not edited when entries below are added — only when the scheme itself changes.)
 
+## ver-1.1.0.0-dev - 2026-09-03
+
+Astrid gets a voice — a real addition, not a wording tweak, hence the 2nd-number
+bump: she's now defined by an audio voice the same way she's defined by
+`PERSONALITY.md`, not just by name.
+
+- **`VOICE.md` written**, `PERSONALITY.md`'s peer document, covering: the
+  engine (Kokoro-82M via `kokoro-onnx`, free/local/no API cost), the exact
+  voice recipe, and — at real length, because it's genuinely useful — why
+  that recipe and not a more aggressive one. Recorded so it isn't
+  re-discovered by trial and error: text content and the `speed` parameter
+  both measured as having no effect on Kokoro's prosody; pushing a voice
+  blend past a neutral baseline raises measurable energy right up until it
+  doesn't, and can introduce real defects invisible to some acoustic checks
+  (pitch-jump counts, jitter/periodicity) while still being real and
+  reproducible to a human ear; a real emotion classifier confirmed only a
+  small, non-extrapolable improvement was available near the plain blend,
+  not a large one further out.
+- **The voice itself**: a straight, unweighted 50/50 blend of Kokoro's
+  built-in "Sky" and "Jessica" voices, no push past that blend. Chosen after
+  several more aggressive alternatives were tried and rejected — one
+  introduced a reproducible glitch specifically on r-colored vowels
+  ("Friday," "warning," "certain") that survived two different acoustic
+  checks without either one detecting it, which is itself recorded as a
+  known limit of this repository's current analysis tooling, not treated as
+  "no defect found."
+- **`voice/` added**: `astrid_voice.npy` (the committed vector, ~500 KB, a
+  plain array rather than a model so it belongs in git directly),
+  `build_voice.py` (reproduces it deterministically — confirmed
+  byte-identical on rebuild), and `speak.py` (synthesizes any text with it).
+  The two Kokoro model files themselves are **not** committed — third-party
+  redistributable weights, not authored here — `voice/.gitignore` and
+  `VOICE.md`'s Setup section cover getting them separately.
+- **`PERSONALITY.md` and `README.md`** both updated to point at `VOICE.md`
+  as a peer document, not a subsection — voice is being treated as
+  foundational to who Astrid is, the same tier as the personality traits
+  themselves, per how this addition was actually asked for.
+
 ## ver-1.0.0.0-dev - 2026-09-03
 
 First version. Astrid's personality, name, and voice were drafted and settled
