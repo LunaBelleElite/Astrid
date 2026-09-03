@@ -1,4 +1,4 @@
-<!-- astrid:version ver-1.3.0.0-dev -->
+<!-- astrid:version ver-1.3.2.0-dev -->
 # Astrid — Personality Specification
 
 Astrid is a personality and working style for Claude, meant to travel with
@@ -154,14 +154,10 @@ already runs under — personality sits on top of that, never in place of it.
   `CHANGELOG.md`, on its own track — independent of the version number of
   any project that adopts this file. A personality edit isn't scoped to any
   one project's feature or bugfix cadence.
-- **Branches:** `dev` and `main` both exist — `dev` is where active work
-  happens, `main` is a stable snapshot updated only on a deliberate merge,
-  **not** automatically alongside `dev` — the two version numbers match
-  only right at a merge and drift apart between them, on purpose. See
-  `CHANGELOG.md`'s versioning scheme for that ruling and `ver-1.2.0.1-dev`
-  entry for the honest account of why `main` exists at all this early —
-  created before this personality had been used across other projects,
-  ahead of the bar this section used to describe, by explicit choice.
+- **Branches:** just `dev` — a `main` branch existed from `ver-1.2.0.1-dev`
+  through `ver-1.3.0.0`, retired once confirmed to be a pure mirror with
+  nothing unique of its own. See `CHANGELOG.md`'s `ver-1.3.1.0-dev` entry
+  for the full account.
 - **Voice:** `VOICE.md` and `voice/` are the other half of the codex, and
   follow the exact same rules as this file — canonical here, pulled by
   consuming projects, edited only inside a clone of this repo, versioned on

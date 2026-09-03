@@ -13,9 +13,63 @@ Any number can climb arbitrarily high. When a higher-order number increments, ev
 
 This repository does **not** use a pre-1.0 phase the way a Luna-Core-bootstrapped project does. Astrid's personality was drafted, discussed, and settled through direct conversation before this repository existed — there is no earlier, unfinished version to number up from, so this history starts at `ver-1.0.0.0-dev` rather than `ver-0.1.0.0-dev`.
 
-`dev` and `main` do **not** merge on every change — `main` moves only when a deliberate merge happens, not automatically alongside `dev`. At the moment of a merge, `main`'s version becomes whatever `dev`'s was, minus the `-dev` suffix; between merges, `dev` climbs ahead and `main` genuinely lags behind it, on purpose. `dev`'s own files do **not** state `main`'s current version number — an earlier version of this rule required keeping that number accurate instead, which meant re-editing `dev` after every single merge just to fix a citation, twice, before this rule changed. `main`'s version lives in `main`'s own `README.md` (or `git log main -1`); `dev` points there instead of repeating a number that would only go stale again.
+This codex has a single branch, `dev` — no `main`, `-dev` suffix always present. It didn't start that way: `main` existed from `ver-1.2.0.1-dev` through `ver-1.3.0.0`, retired once it was confirmed to be a pure mirror of `dev` with nothing unique of its own (see the `ver-1.3.1.0-dev` entry below for the account, and everything from `ver-1.2.0.1-dev` onward up to that point for what maintaining two branches actually cost). Entries below that predate the retirement still say `dev`/`main` and cite version numbers the way that scheme worked at the time — that's the historical record, left exactly as it was written, not smoothed over to match how things work now.
 
 (This section is not edited when entries below are added — only when the scheme itself changes.)
+
+## ver-1.3.2.0-dev - 2026-09-03
+
+Prepared for going public — a real addition, not a wording tweak, hence the
+2nd-number bump.
+
+- **Added the disclaimers this needed before going public**: that it's a
+  vibe-coded personal project rather than a maintained product, that it's
+  built specifically around Claude and Claude Code and other AI tools
+  aren't a target, and a dated "active development is ongoing" status line
+  so a reader knows this isn't a finished, settled personality.
+- **Stated the contribution policy plainly** — issues welcome, pull
+  requests not reviewed or merged. GitHub has no repository setting that
+  actually blocks a pull request from being opened (checked via `gh repo
+  edit --help`, confirmed on the Luna-Core side of this same work
+  tonight — no such flag exists), so this has to be a stated policy rather
+  than a technical block.
+
+## ver-1.3.1.0-dev - 2026-09-03
+
+`main` retired — a real structural change, not a wording tweak, hence the
+3rd-number bump.
+
+- **Verified before deleting anything, not after.** `git log dev..main`
+  came back empty: nothing existed on `main` that `dev` didn't have.
+  `git log main..dev` showed only `main`'s own merge-commit and
+  stamp-adjustment nodes — structural, not content. `git diff main dev`
+  showed exactly the known, deliberate `-dev`-suffix difference across
+  three files and nothing else. `main` was a pure mirror; deleting it lost
+  nothing.
+- **Deleted for real**: `git push origin --delete main` on the remote,
+  then the local branch. `git branch -d` refused ("not fully merged") for
+  a structural reason worth recording, not a content one — `main`'s merge
+  commits were never ancestors of `dev` in the commit graph, since a merge
+  commit only ever exists on the branch that received it, even though
+  every line of content those merges carried was already on `dev`. Forced
+  the delete on that basis, not by overriding the check blindly. All 18
+  existing tags (`ver-1.0.0.0-dev` through `ver-1.3.0.0`) were confirmed
+  to survive the branch deletion untouched.
+- **Why it existed at all, honestly, one more time**: `main` was meant to
+  be a stable snapshot for other adopters, created ahead of the bar that
+  was supposed to justify it (see `ver-1.2.0.1-dev`). In practice it added
+  a merge step — and, twice, a stale-citation bug — to every single round
+  of work, for a distinction (`dev` moving fast, `main` lagging safely
+  behind) that stopped mattering once the actual decision became "everyone
+  pulls `dev`," Luna-Core included. Removing it removes the failure mode,
+  not just the branch.
+- **Every current-state reference to a two-branch world corrected** to
+  match: this section's own versioning-scheme paragraph, `README.md`'s
+  Status section, and `PERSONALITY.md`'s "Branches" bullet. Historical
+  `CHANGELOG.md` entries from before this point are left exactly as
+  written — they describe what was true when they were written, not what's
+  true now, and rewriting them would be exactly the kind of quiet erasure
+  this project has avoided everywhere else.
 
 ## ver-1.3.0.0-dev - 2026-09-03
 

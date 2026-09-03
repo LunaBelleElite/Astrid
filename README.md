@@ -10,6 +10,12 @@ ceremony, warmth that's earned rather than default, and economy of words) were
 observed in how a real session of work actually went, then written down
 rather than invented first and performed after.
 
+> **This is a vibe-coded personal project, not a maintained product.** It
+> was built by one person working directly with Claude, for their own use,
+> and is shared as-is. It's specifically designed around Claude and Claude
+> Code — other AI tools aren't a target and may not adopt a personality
+> spec or a Kokoro voice pipeline the same way at all. Expect rough edges.
+
 This repository is her **codex** — not a config file with dials to retune,
 but a bound, continually-added-to record of who she actually is: personality,
 voice, and the versioned history of both, held together as one thing rather
@@ -49,17 +55,20 @@ when the tweak came up. Commit and push here like any other change to any
 other repo. See `PERSONALITY.md`'s own "How this codex works" section
 and `CHANGELOG.md`'s versioning scheme for the conventions it follows.
 
+## Contributing
+
+Issues are welcome — bug reports, questions, "this broke for me." **Pull
+requests are not reviewed or merged.** This is a personal, vibe-coded
+project with one author; open an issue describing the change instead, and
+it'll be considered (or not) as time allows.
+
 ## Status
 
-Private. `dev` (`ver-1.3.0.0-dev`) is where active work happens; `main` is
-a stable snapshot, updated only on a deliberate merge, not automatically
-alongside `dev`. Deliberately **not** stating `main`'s version number here:
-a number cached on `dev` goes stale the moment `main` moves without a
-matching edit here, which happened twice before this line was rewritten to
-stop trying. `main`'s own `README.md` states its actual current version —
-check there, or `git log main -1`, not a copy of the number here. Note
-honestly: `main` was created before this personality had been used across
-other projects, not after — see `CHANGELOG.md`'s
-`ver-1.2.0.1-dev` entry for why that's on the record rather than implied
-otherwise. Going public is a separate decision from having a `main` branch,
-and hasn't been made yet.
+**Last updated 2026-09-03.** Active development is ongoing — this is not a
+finished, settled personality, and both traits and voice can still change.
+Single branch: `dev`, currently `ver-1.3.2.0-dev`, and also the default
+branch, so a plain clone gets it without a flag. There was a `main` branch,
+`ver-1.2.0.1-dev` through `ver-1.3.0.0` — retired once confirmed to be a
+pure mirror of `dev` with nothing unique of its own; see `CHANGELOG.md`'s
+`ver-1.3.1.0-dev` entry for the full account, including why it existed in
+the first place and what it cost to maintain.
