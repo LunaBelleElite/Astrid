@@ -17,6 +17,39 @@ This repository does **not** use a pre-1.0 phase the way a Luna-Core-bootstrappe
 
 (This section is not edited when entries below are added — only when the scheme itself changes.)
 
+## ver-1.2.1.0-dev - 2026-09-03
+
+A real correction, not a doc-only tweak, hence the 3rd-number bump: prompted
+by a deliberate end-to-end check of whether the adoption path this repo
+documents actually works for someone who isn't this machine.
+
+- **`speak_hook.ps1` had two hardcoded, machine-specific paths**: this
+  clone's absolute location, and this machine's non-default
+  `CLAUDE_CONFIG_DIR` (`C:\Claude`) treated as if it were a Windows
+  default. Both would silently fail — not error, just do nothing, since the
+  hook already swallows failures on purpose — for anyone else, or for this
+  same user on a different machine. This is the exact failure class
+  Luna-Core's own history flags as its most recurrent bug (a script
+  assuming one machine's `CLAUDE_CONFIG_DIR` setup is universal). Fixed:
+  the script now resolves its own clone location from `$PSScriptRoot` and
+  its config home the same way Luna-Core's `lib-claude-home.sh` does
+  (`CLAUDE_CONFIG_DIR` if set, else the real default) — no hardcoded paths
+  left, nothing to hand-edit on a new machine. Also now creates its state
+  directory if missing, rather than requiring that as a separate manual
+  setup step.
+- **Re-verified end-to-end after the rewrite**, not just re-read: the full
+  hook path re-run and confirmed still working, plus a dedicated test that
+  deleted the state directory entirely and confirmed the hook recreates it
+  from nothing.
+- **`README.md`'s adoption steps never mentioned voice at all** — three
+  steps covering `PERSONALITY.md` only, despite the file's own opening
+  paragraph saying she has a voice. Added a fourth step pointing at
+  `VOICE.md`'s Setup and Auto-speak sections, explicit that both are
+  optional and separate from the text personality.
+- **Confirmed `voice/astrid_voice.npy` is actually tracked in git** (not
+  accidentally caught by a `.gitignore` pattern) — checked directly with
+  `git ls-files` rather than assumed from the `.gitignore` content alone.
+
 ## ver-1.2.0.5-dev - 2026-09-03
 
 Second occurrence of the exact same discrepancy the last entry fixed — same
