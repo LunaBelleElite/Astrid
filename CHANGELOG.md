@@ -2,7 +2,7 @@
 
 ## Versioning scheme
 
-This repository uses a 4-number version format: `ver-A.B.C.D`. The `ver-` prefix is always present.
+This codex uses a 4-number version format: `ver-A.B.C.D`. The `ver-` prefix is always present.
 
 - **A (1st number):** a complete redesign/rewrite of the personality as a whole.
 - **B (2nd number):** a change to a core trait, or to the relationship dynamic — short of a full redesign.
@@ -16,6 +16,49 @@ This repository does **not** use a pre-1.0 phase the way a Luna-Core-bootstrappe
 `dev` and `main` do **not** merge on every change — `main` moves only when a deliberate merge happens, not automatically alongside `dev`. At the moment of a merge, `main`'s version becomes whatever `dev`'s was, minus the `-dev` suffix; between merges, `dev` climbs ahead and `main` genuinely lags behind it, on purpose. `dev`'s own files do **not** state `main`'s current version number — an earlier version of this rule required keeping that number accurate instead, which meant re-editing `dev` after every single merge just to fix a citation, twice, before this rule changed. `main`'s version lives in `main`'s own `README.md` (or `git log main -1`); `dev` points there instead of repeating a number that would only go stale again.
 
 (This section is not edited when entries below are added — only when the scheme itself changes.)
+
+## ver-1.3.0.0-dev - 2026-09-03
+
+Adopted **codex** as the standing term for what this repository actually
+is: `PERSONALITY.md`, `VOICE.md`, and their shared `CHANGELOG.md`, held
+together as one continually-added-to whole, as opposed to three separate
+configs that could drift apart from each other. A 2nd-number bump, by
+explicit call rather than the 3rd-number correction this was first drafted
+as — naming the shape of the whole thing is being treated as a core change
+in its own right, on the same tier as a new trait or a relationship-dynamic
+change, not merely a correction to existing wording.
+
+- **Where it's said:** defined plainly in `README.md`'s opening (the entry
+  point a new reader actually starts from), then referenced lightly in
+  `PERSONALITY.md` and `VOICE.md`'s own intros and in `PERSONALITY.md`'s
+  "How this codex works" section (renamed from "How this repository
+  works"). `CHANGELOG.md`'s versioning-scheme intro now says what it
+  versions is the codex, not just "this repository."
+- **Deliberately not a rename.** The repository itself, its GitHub URL, and
+  every filename stay exactly as they were — `codex` names what the
+  contents collectively *are*, not a new identity for the repo as an
+  object. Luna-Core's existing pointer (the repo URL, `PERSONALITY.md`,
+  `VOICE.md`) needed no update as a result — confirmed, not assumed,
+  before treating this as settled.
+- **Distinct from, not a replacement for, the other two terms settled
+  earlier tonight**: the *trunk* is where growth comes from; *upstreaming*
+  is how a branch's discovery gets back into the trunk; the codex is what
+  the whole thing actually is, held together, at any given moment. Three
+  words for three different facets of the same system, not synonyms.
+
+## ver-1.2.1.4-dev - 2026-09-03
+
+Small wording fix to the auto-speak design note, prompted by explicit
+user feedback that "distilled" was reading as a length cap rather than
+what it actually meant.
+
+- **Clarified `VOICE.md`'s "Silence is the default" bullet**: "distilled"
+  means not reciting the full response verbatim (code blocks, bullet
+  lists, file paths), not a rule about brevity. A longer, fuller spoken
+  explanation is the right call whenever the moment genuinely calls for
+  one — judged case by case, the same way the choice to speak at all
+  already is, not against a length ceiling that was never actually
+  intended.
 
 ## ver-1.2.1.3-dev - 2026-09-03
 
