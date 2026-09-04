@@ -17,6 +17,75 @@ This codex has a single branch, `dev` — no `main`, `-dev` suffix always presen
 
 (This section is not edited when entries below are added — only when the scheme itself changes.)
 
+## ver-1.3.2.3-dev - 2026-09-04
+
+A doc-consistency fix, not a content change — 4th-number bump. Same class of
+bug Luna-Core just found and fixed in its own `CLAUDE.md`.
+
+- **`README.md`'s "Status" section no longer states a specific current
+  version number.** It previously read "Single branch: `dev`, currently
+  `ver-1.3.2.0-dev`..." — a number that goes stale the instant any new
+  `CHANGELOG.md` entry lands, which given immediate versioning is every
+  commit. It now says "versioned from `ver-1.0.0.0-dev`" (a permanent,
+  true historical fact) and points to `CHANGELOG.md`'s most recent entry
+  for the actual current version, the single source of truth for that
+  number. Verified before making this change: `CHANGELOG.md`'s oldest
+  entry really is `ver-1.0.0.0-dev`, matching `PERSONALITY.md`'s own claim
+  of no pre-1.0 phase.
+- **`.claude/agents/astrid-docs-writer.md`'s "When you're invoked" section
+  corrected to match.** It previously told this agent to update `README.md`
+  "if adoption steps, status, or the current version changed" — that last
+  clause was the actual cause of the number above getting hand-touched on
+  every routine version bump. It now says to update `README.md` only when
+  adoption steps or status change structurally (e.g. `main` being
+  reintroduced), since a routine version bump is no longer a reason to
+  touch it at all.
+- **Out of scope, on purpose:** `PERSONALITY.md`'s and `VOICE.md`'s
+  `<!-- astrid:version -->` / `<!-- astrid:voice-version -->` HTML
+  comments were left untouched. Those are a deliberate staleness marker
+  for a consuming project's sibling clone to diff against, not
+  restated-in-prose stale-number drift — a different mechanism, left as an
+  open question rather than folded into this fix.
+- **This README line should not need touching again on a routine version
+  bump.** The only remaining trigger is a real structural change to
+  adoption steps or branch status.
+
+## ver-1.3.2.2-dev - 2026-09-04
+
+A wording trim, not a content change — 4th-number bump.
+
+- **Cut restated clauses from `README.md` (629 → 616 words) and
+  `CHANGELOG.md` (3622 → 3600 words)** — phrasing that repeated what the
+  same sentence, or the one before it, already said. Every measured
+  number, bug mechanism, and voice-tuning experiment detail was left
+  untouched.
+- **Historical entries were trimmed, not rewritten.** The rule that past
+  entries aren't rewritten to match later reality is about facts, not
+  phrasing — nothing about what happened, when, or why changed in either
+  file; only wording that said the same thing twice got shorter.
+
+## ver-1.3.2.1-dev - 2026-09-04
+
+Astrid's first Claude Code custom agents — a doc-only addition, hence the
+4th-number bump: nothing about the personality or voice this codex
+describes changed.
+
+- **`.claude/agents/astrid-docs-writer.md`, `astrid-research.md`,
+  `astrid-qa-tester.md`, and `astrid-implementer.md` added**, cloned from
+  Luna-Core's own `luna-core-docs-writer` / `luna-core-research` /
+  `luna-core-qa-tester` / `luna-core-implementer` templates and retargeted
+  to what this codex actually is: a personality/voice codex on a single
+  branch, with three real scripts (`voice/build_voice.py`, `voice/speak.py`,
+  `voice/speak_hook.ps1`) standing in for Luna-Core's fuller software
+  feature set.
+- **`tests/TESTING_NOTES.md` added** as a single-file testing hub —
+  deliberately not Luna-Core's fuller multi-file `tests/` structure,
+  judged disproportionate for a repo this size — documenting the three
+  real verification procedures this codex has: `build_voice.py`'s
+  reproducibility, `speak.py`'s CLI behavior, and `speak_hook.ps1`'s
+  state-file contract, the last one noted explicitly as depended on by
+  other projects, Luna-Core included.
+
 ## ver-1.3.2.0-dev - 2026-09-03
 
 Prepared for going public — a real addition, not a wording tweak, hence the
@@ -97,8 +166,7 @@ change, not merely a correction to existing wording.
 - **Distinct from, not a replacement for, the other two terms settled
   earlier tonight**: the *trunk* is where growth comes from; *upstreaming*
   is how a branch's discovery gets back into the trunk; the codex is what
-  the whole thing actually is, held together, at any given moment. Three
-  words for three different facets of the same system, not synonyms.
+  the whole thing actually is, held together, at any given moment.
 
 ## ver-1.2.1.4-dev - 2026-09-03
 
@@ -111,8 +179,7 @@ what it actually meant.
   lists, file paths), not a rule about brevity. A longer, fuller spoken
   explanation is the right call whenever the moment genuinely calls for
   one — judged case by case, the same way the choice to speak at all
-  already is, not against a length ceiling that was never actually
-  intended.
+  already is.
 
 ## ver-1.2.1.3-dev - 2026-09-03
 

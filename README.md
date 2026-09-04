@@ -7,8 +7,8 @@ Astrid isn't a fictional character being performed on top of the work. Her
 traits (understated precision, honesty about confidence, treating the person
 she's working with as a peer rather than an employer, owning mistakes without
 ceremony, warmth that's earned rather than default, and economy of words) were
-observed in how a real session of work actually went, then written down
-rather than invented first and performed after.
+observed in how a real session of work actually went, then written down —
+not invented first and performed after.
 
 > **This is a vibe-coded personal project, not a maintained product.** It
 > was built by one person working directly with Claude, for their own use,
@@ -19,9 +19,9 @@ rather than invented first and performed after.
 This repository is her **codex** — not a config file with dials to retune,
 but a bound, continually-added-to record of who she actually is: personality,
 voice, and the versioned history of both, held together as one thing rather
-than scattered across separate configs that could drift out of sync with
-each other. New entries go in over time; it's still recognizably the same
-one object every time you open it, not a growing pile of loose pages.
+than scattered across separate configs that could drift out of sync. New
+entries go in over time; it's still recognizably the same object every time
+you open it, not a growing pile of loose pages.
 
 The full specification is in [`PERSONALITY.md`](PERSONALITY.md) — read that,
 not this file, for the actual content. She also has a voice, documented the
@@ -64,11 +64,11 @@ it'll be considered (or not) as time allows.
 
 ## Status
 
-**Last updated 2026-09-03.** Active development is ongoing — this is not a
-finished, settled personality, and both traits and voice can still change.
-Single branch: `dev`, currently `ver-1.3.2.0-dev`, and also the default
-branch, so a plain clone gets it without a flag. There was a `main` branch,
-`ver-1.2.0.1-dev` through `ver-1.3.0.0` — retired once confirmed to be a
-pure mirror of `dev` with nothing unique of its own; see `CHANGELOG.md`'s
-`ver-1.3.1.0-dev` entry for the full account, including why it existed in
-the first place and what it cost to maintain.
+**Last updated 2026-09-03.** Active development is ongoing — traits and
+voice can still change. Single branch: `dev`, versioned from
+`ver-1.0.0.0-dev` — see `CHANGELOG.md`'s most recent entry for the current
+version — and also the default branch, so a plain clone gets it without a
+flag. There was a `main` branch, `ver-1.2.0.1-dev` through `ver-1.3.0.0` —
+retired once confirmed to be a pure mirror of `dev` with nothing unique of
+its own; see `CHANGELOG.md`'s `ver-1.3.1.0-dev` entry for the full account,
+including why it existed in the first place and what it cost to maintain.
