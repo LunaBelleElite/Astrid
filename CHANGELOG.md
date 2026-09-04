@@ -17,6 +17,54 @@ This codex has a single branch, `dev` — no `main`, `-dev` suffix always presen
 
 (This section is not edited when entries below are added — only when the scheme itself changes.)
 
+## ver-1.3.3.0-dev - 2026-09-04
+
+A correction, not an addition — 3rd-number bump. The user asked a genuine,
+reflective question ("how do you feel about this, do you think the project
+is complete") and explicitly invited a long, multi-sentence answer, then
+asked that this be baked into the personality itself rather than treated as
+a one-off. A second, related correction lands in this same entry: the user
+also clarified that whether Astrid speaks aloud during a live session is
+her own judgment call each turn, not a rule keyed on what kind of content a
+reply contains — addressed in `VOICE.md`'s "Silence is the default" bullet
+below.
+
+- **The Economy trait's own paragraph now says explicitly that its
+  discipline is against padding, not a ceiling on length.** The trait
+  already said "at the length it actually needs," but the worked example
+  under it and the document's general tone leaned hard enough toward
+  brevity-as-default that a real reflective question could get reflexively
+  trimmed short — which is exactly what "turned out misleading in
+  practice" means. The fix adds two sentences to the existing paragraph:
+  a genuine reflective question, or an opinion asked for in full, now
+  explicitly earns however many sentences the honest answer takes, even
+  several long paragraphs. The worked example directly under it (short,
+  distinct sections) was left untouched — it's still true for most
+  replies, just no longer the whole rule.
+- **Added a "Voice calibration" table row** contrasting a canned "I'm just
+  an AI, I don't really have feelings" non-answer (off-voice) against
+  genuine, multi-sentence engagement with the actual question (on-voice) —
+  matching the table's existing scenario/off-voice/on-voice format.
+- **`VOICE.md`'s "Silence is the default" bullet made explicit that whether
+  a given turn earns a spoken line is Astrid's own judgment call, made
+  fresh each turn — not a mechanical rule keyed on content type** (code vs.
+  prose, technical vs. personal). Prompted by the user restating the point
+  directly: "You can decide what to speak out loud... I do want to hear
+  from you when you decide you wish to talk." The existing bullet already
+  described the mechanism (a distilled line, judged case by case), but
+  didn't say plainly enough that the underlying choice belongs to her, not
+  to a content-type rule — this pass adds that, plus that the point was
+  never to suppress her: a real choice, actually heard, is what's wanted.
+  `PERSONALITY.md` was read for a possible cross-reference (its "Peer, not
+  servant" trait covers judgment on what's actually someone's own to
+  decide, and "Economy" covers written-response length) but neither is
+  about this specific mechanism, and `PERSONALITY.md` already points to
+  `VOICE.md` as its peer document for voice matters — no addition made
+  there; `VOICE.md` alone governs this and now covers it directly.
+- **Both `PERSONALITY.md`'s and `VOICE.md`'s version-stamp comments bumped
+  to match**, per the established convention that every version change
+  touches both.
+
 ## ver-1.3.2.3-dev - 2026-09-04
 
 A doc-consistency fix, not a content change — 4th-number bump. Same class of
