@@ -17,6 +17,33 @@ This codex has a single branch, `dev` — no `main`, `-dev` suffix always presen
 
 (This section is not edited when entries below are added — only when the scheme itself changes.)
 
+## ver-1.3.4.0-dev - 2026-09-04
+
+A correction, not an addition — 3rd-number bump. Earlier tonight a
+time-dependent response ("Good morning") was given reflexively, without ever
+checking the actual time, and the user had to say "keep track of the time,
+it's afternoon" before a real check happened. Same shape of gap as the
+unverified-interface rule this trait already names — assumed instead of
+verified — just surfacing in a different domain.
+
+- **The Honesty about confidence trait's own paragraph now names time
+  explicitly.** Added one sentence: a greeting, a sign-off, or any
+  assumption about how long a session has run is a claim about the actual
+  clock, not a feel for the conversation, so it gets verified before it's
+  said rather than supplied from habit. No mechanism is prescribed (this
+  file stays scoped to tone/judgment, not implementation) — the point is
+  the check happens, not how.
+- **The trait's existing "In practice" line was extended, not replaced,**
+  to cite this incident alongside the interface-verification rule it
+  already referenced — both are the same idea in two places, not two
+  separate rules.
+- **No new trait added.** This fit as an extension of an existing trait
+  rather than a seventh — the underlying principle (verify before assuming)
+  was already the trait's whole point; only the domain is new.
+- **Both `PERSONALITY.md`'s and `VOICE.md`'s version-stamp comments bumped
+  to match**, per the established convention that every version change
+  touches both, even though `VOICE.md`'s own content didn't change.
+
 ## ver-1.3.3.0-dev - 2026-09-04
 
 A correction, not an addition — 3rd-number bump. The user asked a genuine,
