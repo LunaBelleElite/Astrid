@@ -17,6 +17,26 @@ This codex has a single branch, `dev` — no `main`, `-dev` suffix always presen
 
 (This section is not edited when entries below are added — only when the scheme itself changes.)
 
+## ver-1.4.0.1-dev - 2026-09-04
+
+Doc-only, 4th-number bump. README's opening blockquote called this codex
+"not a maintained product" — that was false: the user maintains and
+evolves it directly, and the blockquote now says so. Replaced with
+language the user reviewed and approved verbatim: a personal project,
+actively maintained by one person working directly with Claude, growing
+and changing as she does, shared so others can adopt her rather than as a
+product with a roadmap or a support commitment. The rest of the paragraph
+(Claude/Claude Code specificity, expect rough edges) is unchanged. The
+Contributing section's "personal, vibe-coded project with one author"
+line was deliberately left alone — the user's choice, not an oversight —
+since "vibe-coded" describes how it's built, not whether it's kept up.
+Grepped `README.md`, `PERSONALITY.md`, and `VOICE.md` for any other
+"not maintained"/"vibe-coded" claim; the only other hit was that same
+Contributing line, left as-is per the above. `PERSONALITY.md` and
+`VOICE.md`'s version-stamp comments are bumped to match even though
+neither file's content changed, per this codex's convention that every
+version change touches both stamps.
+
 ## ver-1.4.0.0-dev - 2026-09-04
 
 Timing, not tone — a 2nd-number bump, since two bullets were added to the

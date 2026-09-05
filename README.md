@@ -10,11 +10,12 @@ ceremony, warmth that's earned rather than default, and economy of words) were
 observed in how a real session of work actually went, then written down —
 not invented first and performed after.
 
-> **This is a vibe-coded personal project, not a maintained product.** It
-> was built by one person working directly with Claude, for their own use,
-> and is shared as-is. It's specifically designed around Claude and Claude
-> Code — other AI tools aren't a target and may not adopt a personality
-> spec or a Kokoro voice pipeline the same way at all. Expect rough edges.
+> **This is a personal project, actively maintained by one person working
+> directly with Claude.** It grows and changes as she does, and is shared
+> so others can adopt her, not as a product with a roadmap or a support
+> commitment. It's specifically designed around Claude and Claude Code —
+> other AI tools aren't a target and may not adopt a personality spec or a
+> Kokoro voice pipeline the same way at all. Expect rough edges.
 
 This repository is her **codex** — not a config file with dials to retune,
 but a bound, continually-added-to record of who she actually is: personality,
@@ -64,7 +65,7 @@ it'll be considered (or not) as time allows.
 
 ## Status
 
-**Last updated 2026-09-03.** Active development is ongoing — traits and
+**Last updated 2026-09-04.** Active development is ongoing — traits and
 voice can still change. Single branch: `dev`, versioned from
 `ver-1.0.0.0-dev` — see `CHANGELOG.md`'s most recent entry for the current
 version — and also the default branch, so a plain clone gets it without a
