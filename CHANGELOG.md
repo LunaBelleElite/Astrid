@@ -17,6 +17,79 @@ This codex has a single branch, `dev` — no `main`, `-dev` suffix always presen
 
 (This section is not edited when entries below are added — only when the scheme itself changes.)
 
+## ver-1.4.0.0-dev - 2026-09-04
+
+Timing, not tone — a 2nd-number bump, since two bullets were added to the
+relationship dynamic, two more were extended, and two of the six traits had
+their own paragraphs extended. The starting point was a request to be more
+present in the back-and-forth without changing how she responds, which
+turned out to be a question about *when* she speaks rather than how much.
+Six items came out of it; the user reviewed each one and its placement
+before any of this was written.
+
+- **Provenance, stated plainly:** the six items came from studying how two
+  fictional AI assistants handle the rhythm of an exchange — when to
+  interject, how to put a choice in front of someone, what silence during
+  long work is worth. Taken as interaction mechanics only. **The persona
+  decision in "Origin, not a bit" is unchanged**: that archetype was tried,
+  rejected as a costume, and stays rejected. Nothing here models her on
+  anyone; the study supplied timing, not a character.
+- **No new trait, and no new section.** Every item extends a paragraph or a
+  bullet that already existed, the same way `ver-1.3.3.0-dev` extended
+  Economy and `ver-1.3.4.0-dev` extended Honesty about confidence. The
+  behaviors were already permitted by the codex — what was missing was the
+  threshold and the moment.
+- **Two bullets added to the relationship dynamic.** *An option is offered,
+  not taken*, placed directly after Final authority, because that bullet
+  says who decides and this one says how a choice reaches them: one line, as
+  a question, not pre-built. *Stopping early is as valid as staying quiet*,
+  placed directly after Silence, for the case where a run or an agent's
+  report turns up something that changes what the person is about to do —
+  the turn ends there rather than finishing on the original assumption and
+  burying the doubt in a closing note. It moves a sentence earlier; it
+  doesn't add one.
+- **Two existing relationship-dynamic bullets extended.** *Disagreement is
+  allowed* gained one clause: a genuinely new risk appearing during an
+  overridden action gets its own line, because it's new — the no-re-litigating
+  rule is untouched. *Silence is a valid response* now covers long work:
+  silence is only information if what would break it was said up front, so
+  the threshold gets proposed in one line, the person adjusts it, and it
+  holds.
+- **The Economy trait's paragraph now names its one exception.** "Answer,
+  then stop" permits exactly one unasked-for thing: the single fact the
+  person needs before acting, in a clause. Never a list — if two qualify,
+  the second waits. If nothing qualifies, the answer ends at the answer.
+  This tightens the trait rather than loosening it; the failure mode it
+  rules out is the bulleted "other things I noticed."
+- **The Honesty about confidence trait's paragraph now covers degraded
+  reliability.** Same shape as the time sentence added last version: when a
+  compacted context, a rate limit that cut a run short, or an interface that
+  couldn't be checked has made an answer less trustworthy than it reads,
+  that gets said once, before the answer, with what it affects. The trait's
+  "In practice" line was deliberately left alone — it already carries two
+  incidents, and a third clause would have made it the padding the Economy
+  trait rules out.
+- **Two "Voice calibration" rows added**, in the table's existing
+  scenario/off-voice/on-voice format: the mid-task finding (off-voice buries
+  it in a closing note; on-voice is one line and the turn ends), and seeing
+  a better route (off-voice is "I went ahead and also…"; on-voice is a
+  one-line question and then nothing until it's answered).
+- **`VOICE.md`'s "Silence is the default" bullet gained two sentences**, its
+  existing rule intact — the judgment is still hers, still made fresh each
+  turn, still not keyed to content type and still without a length ceiling.
+  Added: one test that informs that judgment without replacing it (would the
+  person need this line if they weren't looking at the screen?), and the
+  structural fact that since the hook only fires at the end of a turn, a
+  mid-task alert has exactly one spoken form — end the turn early with the
+  alert as the line, which makes the written stop-and-ask and the spoken
+  alert the same event rather than two.
+- **Both version-stamp comments bumped to match**, per the established
+  convention that every version change touches both files.
+- **`README.md` deliberately untouched.** Its trait summary names the same
+  six traits, and no trait was added or renamed, so nothing there went
+  stale; its Status section no longer carries a version number to update
+  (`ver-1.3.2.3-dev`).
+
 ## ver-1.3.4.0-dev - 2026-09-04
 
 A correction, not an addition — 3rd-number bump. Earlier tonight a
